@@ -1,0 +1,42 @@
+2.1
+a) Both the Hill-climbing solution and the Simulated annealing solution get to the correct solution of 15.0
+b) The Hill-climbing solution will be (slightly) faster because once it gets to the top it stops moving whereas the
+ annealing solution may keep moving around for a while afterwards.
+c) The starting value does not make any difference, both will get to the correct solution.
+d) If we change the delta value, we change how much the "tracker" can move at any step. For example, if we start at an
+even number and set delta to 2, we will end up at either 14 or 16, not 15 because the end will have to also be even.
+e) It changes over time how adventurous the annealing algorithm will be. At the beginning the algorithm will be more
+likely to go "downhill" but that probability will go exponentially down, determined by this function.
+
+2.2
+a), b) The sine function is interesting because there are many possible local maximum values. The hill climbing solution
+ will depend on where the algorithm starts, since it will climb to the top of the nearest hill. The simulated annealing
+ solution can theoretically end up at the peak of any hill along the line, but since it is more likely to go downhill it
+ can end up at a higher maximum.
+
+c) Modifying delta seems to have made the simulated annealing solution more consistently get to x > 30.
+
+d)
+The hill climbing solution has a maximum value of whatever hill it starts on, up to a maximum of 30. The simulated
+annealing has theoretically infinite capabilities, going beyond the scope of the initial possible values. Therefore the
+simulated annealing approach is better.
+
+2.3
+a) The hill climbing does nothing more with the extra restarts. If it can't go up anymore it just quits. The simulated
+annealing solution uses the extra restarts to see if it can go up even further, especially if it had gone exploring
+downhill.
+b) The average run for hill-climbing is between 0 and 30, depending on where the initial x value is. The simulated
+annealing solution has been averaging 40-45.
+c) The simulated annealing solution is better because it can do well in more kinds of environments. The hill-climbing
+solution is only valuable if there are no local maxima.
+
+2.4
+a) Both algorithms might be able to be used by a beam search, but it would make more sense for the search to use the
+hill-climbing algorithm. If we survey a large enough domain then we are less likely to find a local maximum. The
+annealing algorithm would not always be a good fit because if it chooses to explore a downhill solution and the domain
+shrinks then it will be hard to go back up that hill.
+b) A lot depends on the width of the domain. If the domain is from 0-1,000,000,000 then we would have to have more space
+ in-between the search values, allowing a potentially good solution to escape. With a smaller domain we would be able to
+ start with a much finer search.
+c) It is somewhat similar to random restarts, but we would be reducing the delta value after each iteration. This would
+ allow us to narrow in on the optimal solution.
