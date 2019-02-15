@@ -1,0 +1,28 @@
+3.1
+a) For the first puzzle, all the algorithms work since the solution is already provided. Depth first search tries the
+ other puzzles for a while, but eventually fails. AC3 is able to solve the second (easy) puzzle very quickly, but fails
+ when the puzzle gets harder. The backtracking algorithm solves the easy puzzle, but it does not solve any harder
+ puzzles in a time efficient manner. The minimum conflicts algorithm does not even solve the easy puzzle quickly.
+b) The forward_checking inference parameter seems to help the most for the backtracking algorithm. It can solve the most
+ difficult puzzle very quickly both with select_unassigned_parameter and mrv, although it solves the puzzle more quickly
+ with mrv than with select_unassigned_parameter.
+
+3.2
+a) For depth first search and AC3 n can't even be 4. They are able to solve n=1, but anything higher gives them
+ problems. Backtracking starts to have problems after n=20. min-conflicts, however, I was able to go up to n=10000,
+ which was solved after 1-2 minutes. This makes sense because backtracking has many more possibilities to look at than
+ min-conflicts. There is a "heuristic" for min-conflicts that severely reduces the number of steps it needs to take.
+b) Backtracking improves a lot when we use forward checking and mrv parameters, it is able to complete solutions up to
+ n=300 in <10 seconds.
+c) For n=1000, min_checking only needs 32 steps to find a solution. It depends on the random starting state, but the
+ highest number of steps I saw was 72.
+
+3.3
+a) A lot of the specifications for CSP and traditional search problems are similar. Both have states in which there are
+ a set of actions that can take you to another state, with the ultimate goal of finding a solution state. The
+ formulation for each of these elements is slightly different, but the general idea behind it is similar. CSP bases its
+ actions and goal state on a set of rules to be followed, whereas traditional search algorithms rely on improving a
+ value.
+b) At least in the problems we solved, the heuristics were different from CSP to traditional search. CSP had whole
+ numbers as their heuristics, the number of current conflicts. Traditional search rather uses a continuous line with
+ any possible value as a heuristic, the larger the better. 
