@@ -25,4 +25,4 @@ a) A lot of the specifications for CSP and traditional search problems are simil
  value.
 b) At least in the problems we solved, the heuristics were different from CSP to traditional search. CSP had whole
  numbers as their heuristics, the number of current conflicts. Traditional search rather uses a continuous line with
- any possible value as a heuristic, the larger the better. 
+ any possible value as a heuristic, the larger the better.
