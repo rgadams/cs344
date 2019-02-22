@@ -1,0 +1,23 @@
+a)
+i. P(User) = <0.089, 0.911> 8.9% of Americans are users, 91.1% are not.
+ii. P(test | user) = 0.99. Out of all drug users, 99% get a positive result.
+iii. P(-test | user) = 0.01. The opposite of (ii)
+iv. P(test | -user) = 0.02. If 98% of non-users get negative results, 2% get positive.
+v. P(user | test) = P(user ^ test) / P(test)
+    = P(user ^ test) / [P(user ^ test) + P(-user ^ test)]
+    = P(test | user) * P(user) / [P(test | user) * P(user) + P(test | -user) * P(-user)]
+    = 0.99 * 0.089 / [0.99 * 0.089 + 0.02 * 0.911]
+    = 0.829
+
+b)  P(cancer) = 0.01
+    P(positive | cancer) = 0.8
+    P(positive | -cancer) = 0.096
+
+    P(cancer | positive) = P(positive | cancer) * P(cancer) /
+            [P(positive | cancer) * P(cancer) + P(positive | -cancer) * P(-cancer)]
+        = 0.8 * 0.01 / [0.8 * 0.01 + 0.096 * 0.99]
+        = 0.0776
+
+    P(-cancer | positive) = 1 - P(positive | cancer)
+        = 1 - 0.0776
+        = 0.9224
