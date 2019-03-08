@@ -1,0 +1,34 @@
+1. We want the machine learned model to be able to learn the difference between Christian songs and non-Christian songs
+ based on title and author.
+
+2. We want to be able to filter non-Christian songs from our radio station.
+
+3. a) The number of Christian songs properly categorized.
+
+b) We will have succeeded if there are no registered complaints due to a song being Non-christian.
+
+c) Our ML model will be a failure if too many false positives occur or it doesn't find any Christian songs.
+
+4. a) 0, 1
+
+b) "Non-Christian", "Christian"
+
+5. a) We need the output of the ML model before the next song is played (real-time).
+
+b) Output will be used by audio program to determine whether to play the song or not.
+
+6. We would use the fact whether key words like God, Faith, Jesus are in the title.
+
+7. a) Binary classification: either Christian or Non-Christian
+
+b) We already have a binary classification problem.
+
+8. Input 1: Title
+    Input 2: Artist
+    Input 3: YouTube description
+    Output: Christian/Non-Christian
+
+9. Music Database containing genre category. From this we can get title, artist and genre, then we can poll YouTube's
+ API for the song's description.
+
+10. Artists and Song Titles are easy to obtain, they would provide a reasonable outcome.

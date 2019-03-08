@@ -1,0 +1,18 @@
+Base Problem:
+Y: 6
+N: 6
+
+Hungry?
+Y Stay:
+    Y: 5
+    N: 2
+N Stay:
+    Y: 1
+    N: 4
+
+Entropy = 1
+Remainder = [7/12 * - (5/7 * lg(5/7) + 2/7 * lg(2/7))] + [5/12 * - (1/5 * lg(1/5) + 4/5 * lg(4/5))] = 0.8043
+
+Gain = Entropy - Remainder = 1 - 0.8043 = 0.1957
+
+This means that Hungry? is not as good an indicator as Patrons? but a better indicator than Type?.
