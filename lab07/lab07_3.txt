@@ -1,0 +1,30 @@
+a)
+Task1:
+california_housing_dataframe["rooms_per_person"] = california_housing_dataframe["total_rooms"] / california_housing_dataframe["population"]
+
+calibration_data = train_model(
+    learning_rate=0.05,
+    steps=500,
+    batch_size=5,
+    input_feature="rooms_per_person"
+)
+
+Task2:
+plt.scatter(calibration_data.predictions, calibration_data.targets)
+
+There are some oddities.
+
+california_housing_dataframe["rooms_per_person"].hist()
+
+Some places have many rooms per person. I could imagine there are a few mansions in the California area.
+
+Task3:
+california_housing_dataframe["rooms_per_person"] = california_housing_dataframe["rooms_per_person"].apply(lambda val: min(val, 10))
+
+b)
+Synthetic features can be used to create a better feature for learning. Perhaps rooms and population do not tell the
+whole story by themselves, but rooms per person might give a better understanding of the data.
+
+c)
+Outliers are points of data that extend far beyond the scope of the vast majority of the other data. Sometimes we clip
+ them out so they do not give our learning a difficult time.

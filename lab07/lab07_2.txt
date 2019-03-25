@@ -1,0 +1,23 @@
+a) Categorical data represents characteristics that usually aren't naturally initially represented by numbers, like
+gender and state of residency. They can be converted to numeric representations that are usually whole numbers.
+Numerical data however, is usually naturally a number, like height and weight.
+
+b)
+Task 1:
+train_model(
+    learning_rate=0.0001,
+    steps=100,
+    batch_size=5
+)
+
+Task 2:
+train_model(
+    learning_rate=0.00015,
+    steps=200,
+    batch_size=10,
+    input_feature="population"
+)
+
+c) The hyperparameters are things like learning_rate, steps, and batch_size. There are some rules of thumb to try: if it
+ is descending too slowly, increase the learning_rate, if it is bouncing up and down, the learning_rate is too high. If
+  it seems like it still could go down, increase the steps. Batch sizes that are too small can also cause instability.

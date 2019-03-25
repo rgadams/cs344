@@ -1,0 +1,13 @@
+a)
+Exercise 1:
+cities['San and big area'] = (cities['Area square miles'] > 50) & (cities['City name'].apply(lambda val: val.find('San')) + 1)
+Exercies 2:
+cities = cities.reindex([1, 3, 100])
+cities['City name'][100]
+This returns Nan. I think this is allowed because merging dataframes together might be easier this way.
+
+b)
+Pandas makes manipulating numpy arrays easy when the arrays have entries that correspond to other numpy arrays.
+
+c)
+If you want to sort or group the data by a particular column value, reordering the dataframe would be useful.

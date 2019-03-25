@@ -1,0 +1,56 @@
+Task1: Median income is in a format I am not familiar with it is on a scale from 0.5 to 15
+
+Task2: It appears that the training and validation data has not been split up randomly, but rather just cut off the end
+of the training data.
+
+Task3: I just uncommented the code that randomizes the indices of the training data before splitting it up into
+validation and training parts.
+
+Task4:
+training_input_fn = lambda: my_input_fn(
+  training_examples,
+  training_targets["median_house_value"],
+  batch_size=batch_size)
+predict_training_input_fn = lambda: my_input_fn(
+  training_examples,
+  training_targets["median_house_value"],
+  num_epochs=1,
+  shuffle=False)
+predict_validation_input_fn = lambda: my_input_fn(
+  validation_examples, validation_targets["median_house_value"],
+  num_epochs=1,
+  shuffle=False)
+
+...
+
+training_predictions = linear_regressor.predict(input_fn=predict_training_input_fn)
+training_predictions = np.array([item['predictions'][0] for item in training_predictions])
+
+validation_predictions = linear_regressor.predict(input_fn=predict_validation_input_fn)
+validation_predictions = np.array([item['predictions'][0] for item in validation_predictions])
+
+Task5:
+california_housing_test_data = pd.read_csv("https://download.mlcc.google.com/mledu-datasets/california_housing_test.csv", sep=",")
+test_examples = preprocess_features(california_housing_test_data)
+test_targets = preprocess_targets(california_housing_test_data)
+
+predict_test_input_fn = lambda: my_input_fn(
+      test_examples,
+      test_targets["median_house_value"],
+      batch_size = 5)
+
+test_predictions = linear_regressor.predict(input_fn=predict_test_input_fn)
+test_predictions = np.array([item['predictions'][0] for item in test_predictions])
+
+rmse = math.sqrt(metrics.mean_squared_error(test_predictions, test_targets))
+
+print(rmse)
+
+
+b)
+
+The training and validation datasets are similar as in they come from the same overarching dataset. Part of that set is
+used for training and the other is used for validation. These training and validation sets are mutually exclusive; no
+row in one can be the same as any row in the other. Testing datasets are comprised of separate data altogether, but in
+the same format as the training and validation sets. To train the model, one uses the training data and the validation
+data. Then the testing data is used to make sure that the model is not being overfitted to the validation data.
