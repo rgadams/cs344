@@ -1,0 +1,60 @@
+2.
+
+a) FTRL varies the learning rate differently for different coefficients which can benefit features that are rarely non-zero.
+This seems very useful for binned features.
+
+b) Bucketing/Binning allows the data to be separated into more digestible chunks for the neural network. Each new bucket
+ contains a smaller amount of data but more meaningful data. I can imagine that it would be better to encode one-hot
+  bucketized features rather than a single feature that has 0, 1, 2, ...
+
+c)
+
+Task 1:
+  bucketized_latitude = tf.feature_column.bucketized_column(
+      latitude, boundaries=get_quantile_based_boundaries(
+        training_examples["latitude"], 10))
+  bucketized_housing_median_age = tf.feature_column.bucketized_column(
+      housing_median_age, boundaries=get_quantile_based_boundaries(
+        training_examples["housing_median_age"], 5))
+  bucketized_median_income = tf.feature_column.bucketized_column(
+      median_income, boundaries=get_quantile_based_boundaries(
+        training_examples["median_income"], 7))
+  bucketized_rooms_per_person = tf.feature_column.bucketized_column(
+      rooms_per_person, boundaries=get_quantile_based_boundaries(
+        training_examples["rooms_per_person"], 5))
+
+RMSE (on training data):
+  period 00 : 169.76
+  period 01 : 143.36
+  period 02 : 126.86
+  period 03 : 115.80
+  period 04 : 107.93
+  period 05 : 102.12
+  period 06 : 97.73
+  period 07 : 94.21
+  period 08 : 91.34
+  period 09 : 89.00
+
+I was a bit skeptical about how bucketing could help, but seeing these results has convinced me that bucketing can be
+useful. I guess if I think about it more, binning features allows us to separate different categories easier than a
+single feature would allow.
+
+Task 2:
+
+I used latitude x longitude for my feature cross. It was simple but made sense to go simple with that. Latitude and
+Longitude are not related in a correlation fashion, but are the two together give a better indication of location than
+ both separately.
+
+long_x_lat = tf.feature_column.crossed_column(["latitude", "longitude"], 1000)
+
+RMSE (on training data):
+  period 00 : 162.17
+  period 01 : 133.65
+  period 02 : 116.66
+  period 03 : 105.53
+  period 04 : 97.72
+  period 05 : 92.03
+  period 06 : 87.61
+  period 07 : 84.07
+  period 08 : 81.32
+  period 09 : 79.05

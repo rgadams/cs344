@@ -1,0 +1,17 @@
+3.
+
+a) Seaborn looks like it is very flexible and easy to use to generate lots of plots quickly, whereas MatPlotLib looks
+more customizable and complex.
+
+b) There are 397 entries in the dataset. More data could be useful, but it seems like we could enough information from
+a dataset of this size for at least a reasonable guess.
+
+c) Since the data has many different scales associated with different features, it can be helpful to scale each variable
+ down so each feature is on the same scale. This allows the weights on the neural network to work more efficiently.
+
+d) This is not a linear regression model, but rather a non-linear regression model. The neural network uses non-linear
+activation functions at each hidden layer.
+
+e) I'm not sure that smaller datasets "prefer" smaller networks, but perhaps smaller datasets would have problems with
+overfitting a large neural network. In order to properly train with a small network it may need more epochs to train a
+large neural network, resulting in possible overfitting.

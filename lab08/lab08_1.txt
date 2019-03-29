@@ -1,0 +1,65 @@
+1.
+a) The Pearson correlation coefficient measures the amount of correlation between two variables. This means it checks
+ if one variable's value indicates what the other variable's value might be.
+
+Median income and target: This correlation value is 0.7 This makes sense because the higher the median_income someone
+has, the more likely the median_house_value will be higher.
+
+b)
+
+Task 1:
+minimal_features = [
+    "median_income",
+    "rooms_per_person"
+]
+
+assert minimal_features, "You must select at least one feature!"
+
+minimal_training_examples = training_examples[minimal_features]
+minimal_validation_examples = validation_examples[minimal_features]
+
+train_model(
+    learning_rate=0.01,
+    steps=1000,
+    batch_size=10,
+    training_examples=minimal_training_examples,
+    training_targets=training_targets,
+    validation_examples=minimal_validation_examples,
+    validation_targets=validation_targets)
+
+These features and parameters worked very well for me. I got the following results:
+
+RMSE (on training data):
+  period 09 : 85.06
+
+I beat the Google-baselines which was cool. Their baseline was a RMSE of 112.76
+
+Task 2:
+
+training_examples["distance_from_SF"] = abs(training_examples["latitude"] - 38)
+validation_examples["distance_from_SF"] = abs(validation_examples["latitude"] - 38)
+
+
+minimal_features = [
+  "median_income",
+  "distance_from_SF",
+]
+
+minimal_training_examples = training_examples[minimal_features]
+minimal_validation_examples = validation_examples[minimal_features]
+
+_ = train_model(
+    learning_rate=0.01,
+    steps=500,
+    batch_size=5,
+    training_examples=minimal_training_examples,
+    training_targets=training_targets,
+    validation_examples=minimal_validation_examples,
+    validation_targets=validation_targets)
+
+I calculated distance from San Francisco like they suggested and used it with the following success:
+
+RMSE (on training data):
+  period 09 : 130.36
+
+Google's baseline was 140.00
