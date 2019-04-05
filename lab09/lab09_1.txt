@@ -1,0 +1,13 @@
+a) It is difficult to tell how the linear regression does, but we can tell that the gradient descent is not working as
+well as perhaps it would normally. It is flat on average, with minor ups and downs in each period. We would like the
+ linear regression to have a distinct downward trend.
+
+b) L2 Loss is used by the LinearRegressor, and does not do a very good job at penalizing misclassifications if the
+ output is a probability. LogLoss, on the other hand, penalizes these errors much more.
+
+c) The logistic regression seems to do better than the linear regression in terms of the validation set. The validation
+set does more comparable to the training set than the linear regressor does. Additionally, the logistic regression has
+ significant gradient descent compared to the volatility of linear regression.
+
+d) With learning_rate=0.00001, steps=1000, and batch_size=20 I improved the AUC to 0.74
+

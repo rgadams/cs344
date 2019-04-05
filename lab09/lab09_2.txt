@@ -1,0 +1,7 @@
+a) Reducing the size of a model can encourage weights to be exactly zero. This makes the model not use the feature
+at all, making the model much more efficient.
+
+b) L1 increases sparsity by making some weights exactly zero. This would remove the parameter from the model, reducing
+the size of the model.
+
+c) With regularization_strength=0.1, we get a LogLoss of 0.25 and model size of 747

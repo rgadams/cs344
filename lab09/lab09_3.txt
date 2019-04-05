@@ -1,0 +1,19 @@
+a) 3,000 images of cats and dogs are taken from a larger 25,000 image dataset on Kaggle.
+
+It is very similar in structure, although it differs on the input dimensions and number of nodes per layer. It has 3
+ convolutional layers and uses max pooling after each layer. It then has two final dense layers, just like we did.
+
+It seems like it is representing eyes and ears a lot as potential features. Then it also can get the general shape of the animal.
+
+b) Data augmentation is used to prevent overfitting. It is used by slightly modifying the features of the existing data
+to create similar-looking data. In the case of image recognition, we can warp the images to look slightly different,
+effectively increasing our training set size.
+
+c) acc: 0.7590, val_acc: 0.7590, loss: 0.5334, val_loss: 0.5334
+history = model.fit_generator(
+      train_generator,
+      steps_per_epoch=100,
+      epochs=30,
+      validation_data=validation_generator,
+      validation_steps=50,
+      verbose=2)
