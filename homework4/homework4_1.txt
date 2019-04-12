@@ -1,0 +1,12 @@
+I believe “deep” neural networks are here to stay. They seem more flexible and usable than expert systems and single-
+layer perceptrons.
+
+Expert systems were too brittle. After 2000 rules they started to find contradictions between rules. This was not
+sufficient to effectively model real-life situations. They also were very difficult to construct, as humans would have
+ to come up with every rule. Neural networks, on the other hand, do not require the same kind of mental gymnastics to
+ come up with rules and are not as brittle. These networks come up with their own indicators rather than requiring
+ humans to find them.
+
+Perceptrons, likewise, were not enough. A single layer of perceptrons using a linear activation function could not
+ model non-linear systems. Deep neural networks are able to use non-linear activation functions to model these
+ situations. For this reason I believe neural networks will be around for a long time, if not indefinitely.
