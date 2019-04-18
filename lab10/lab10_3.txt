@@ -1,0 +1,9 @@
+a) The confusion matrix shows us how likely it is to label an image wrongly. For example, it has the most trouble
+classifying 5s and 9s. It often classifies 5s as 3s and 9s as 4s.
+
+b) The TensorFlow network is not a convolutional neural network like we used in class. It is just uses Tensorflow's
+DNNClassifier which just makes dense layers. It also uses a different optimizer than the one we used in class.
+
+c) The visualizations between 10 steps and 1000 steps is quite drastic. While it is difficult to discern exact features
+on either, there is a distinct jaggedness on the 10 step version whereas the 1000 step version has more gradient-looking
+ things.

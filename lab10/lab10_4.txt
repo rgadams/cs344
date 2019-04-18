@@ -1,0 +1,18 @@
+a) Task 1:
+If you have a linear function, there is not really any need to use a Deep Neural Network model for non-linear
+ possibilities. Neural networks take much longer to train than Linear Classifiers, so if time is an issue then Linear
+ Classifiers may be good enough.
+
+b) Task 2:
+The Neural Network model does worse on the training set but does about the same if not slightly better on the testset.
+
+c) Task 3:
+The embeddings do not seem to do any better than the non-embeddings. The accuracy of the non-embeddings was 0.8 and the
+accuracy of the embeddings was 0.78.
+
+d) Task 4-5:
+Worst and awful have similar embeddings, this makes sense since they are both negative adjectives. They are used in
+similar ways in sentences.
+
+e) Task 6:
+With a learning rate of 0.1, a clipping norm of 10, and hidden_units=[20,15], I was able to get an accuracy of 0.83

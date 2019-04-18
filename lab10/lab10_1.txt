@@ -1,0 +1,19 @@
+a) I would rather use Keras than Tensorflow. Keras allows us to specify layers much more easily without a lot of syntax.
+It seems much more intuitive than the Tensorflow counterpart.
+
+b)
+
+Task 1:
+dnn_regressor = train_nn_regression_model(
+    learning_rate=0.001,
+    steps=2000,
+    batch_size=20,
+    hidden_units=[10, 10],
+    training_examples=training_examples,
+    training_targets=training_targets,
+    validation_examples=validation_examples,
+    validation_targets=validation_targets)
+
+This got me a RMSE of 109.24
+
+The RMSE on the testing data was 106.30

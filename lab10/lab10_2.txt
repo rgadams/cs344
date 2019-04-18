@@ -1,0 +1,54 @@
+a) Adagrad modifies the learning rate adaptively for each coefficient in the model. This is good for convex problems,
+ which unfortunately, neural network training often is.
+
+b)
+Task 1:
+_ = train_nn_regression_model(
+    my_optimizer=tf.train.GradientDescentOptimizer(learning_rate=0.005),
+    steps=1000,
+    batch_size=20,
+    hidden_units=[20, 10],
+    training_examples=normalized_training_examples,
+    training_targets=training_targets,
+    validation_examples=normalized_validation_examples,
+    validation_targets=validation_targets)
+period 09 : 89.53
+
+Task 2:
+_ = train_nn_regression_model(
+    my_optimizer=tf.train.AdagradOptimizer(learning_rate=0.05),
+    steps=1000,
+    batch_size=20,
+    hidden_units=[20, 10],
+    training_examples=normalized_training_examples,
+    training_targets=training_targets,
+    validation_examples=normalized_validation_examples,
+    validation_targets=validation_targets)
+
+period 09 : 79.38
+
+_ = train_nn_regression_model(
+    my_optimizer=tf.train.AdamOptimizer(learning_rate=0.05),
+    steps=1000,
+    batch_size=20,
+    hidden_units=[20, 10],
+    training_examples=normalized_training_examples,
+    training_targets=training_targets,
+    validation_examples=normalized_validation_examples,
+    validation_targets=validation_targets)
+
+period 09 : 67.76
+
+Task 3:
+
+_ = train_nn_regression_model(
+    my_optimizer=tf.train.AdamOptimizer(learning_rate=0.15),
+    steps=1000,
+    batch_size=50,
+    hidden_units=[10, 10],
+    training_examples=normalized_training_examples,
+    training_targets=training_targets,
+    validation_examples=normalized_validation_examples,
+    validation_targets=validation_targets)
+
+  period 09 : 66.59
