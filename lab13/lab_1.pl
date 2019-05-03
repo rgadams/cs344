@@ -22,3 +22,7 @@ listtran([], []).
 listtran([G|TG], [E|TE]) :- tran(G, E), listtran(TG, TE).
 
 % Part b)
+human(socrates).
+mortal(X) :- human(X).
+
+% A query mortal(socrates) returns true.
