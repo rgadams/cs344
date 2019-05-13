@@ -21,6 +21,6 @@ In addition to the files, there are four folders that hold the weights for the f
 
 ## Python Version
 
-To run this project I am using Python 3.7 with the requirements.txt found in this repository's head directory.
+To run this project I am using Python 3.7.3 with the requirements.txt found in this repository's head directory.
 
 
