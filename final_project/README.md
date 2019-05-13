@@ -19,3 +19,8 @@ The other four files are dedicated to running these models and are named accordi
 
 In addition to the files, there are four folders that hold the weights for the four network models. I have included only one example weights file for testing purposes, but the training files will generate one per epoch.
 
+## Python Version
+
+To run this project I am using Python 3.7 with the requirements.txt found in this repository's head directory.
+
+
