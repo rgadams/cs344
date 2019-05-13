@@ -1,6 +1,7 @@
 # Load LSTM network and generate text
 import sys
 import numpy
+import string
 import pandas as pd
 from keras.models import Sequential
 from keras.layers import Dense
@@ -18,10 +19,12 @@ df_pinkfloyd = df_pinkfloyd.apply(lambda x: x.astype(str).str.lower())
 df_pinkfloyd = df_pinkfloyd.apply(lambda x: x.astype(str).str.replace(r"\n", ""))
 df_pinkfloyd = df_pinkfloyd.apply(lambda x: x.astype(str).str.replace(r"\.\.\.", ""))
 raw_text = ' '.join(map(str, df_pinkfloyd['text']))
+raw_text.translate(str.maketrans('', '', string.punctuation))
 
 # create mapping of unique chars to integers
 unique_words = list(set(raw_text.split()))
-words = raw_text.split()
+words = list(raw_text.split())
+
 word_to_int = dict((c, i) for i, c in enumerate(unique_words))
 int_to_word = dict((i, c) for i, c in enumerate(unique_words))
 
@@ -30,12 +33,12 @@ n_words = len(words)
 print("Total Vocab: ", n_words)
 
 # prepare the dataset of input to output pairs encoded as integers
-seq_length = 4
+seq_length = 6
 dataX = []
 dataY = []
 for i in range(0, n_words - seq_length, 1):
-	seq_in = raw_text[i:i + seq_length]
-	seq_out = raw_text[i + seq_length]
+	seq_in = words[i:i + seq_length]
+	seq_out = words[i + seq_length]
 	dataX.append([word_to_int[word] for word in seq_in])
 	# print("x: ", [word_to_int[word] for word in seq_in])
 	dataY.append(word_to_int[seq_out])
@@ -60,15 +63,14 @@ model.add(Dropout(0.2))
 model.add(LSTM(128, return_sequences=True))
 model.add(Dropout(0.2))
 model.add(LSTM(128, return_sequences=True))
-model.add(Dropout(0.2))
 model.add(Flatten())
-model.add(Dense(y.shape[1], activation='sigmoid'))
-model.compile(loss='categorical_crossentropy', optimizer='adam')
+model.add(Dense(y.shape[1], activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 
 # load the network weights
-filename = "words\\weights-improvement-10-6.3975.hdf5"
+filename = "words\\weights-improvement-10-6.5060.hdf5"
 model.load_weights(filename)
-model.compile(loss='categorical_crossentropy', optimizer='adam')
+model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
 
 # pick a random starting point
 start = numpy.random.randint(0, len(dataX)-1)

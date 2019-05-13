@@ -60,7 +60,7 @@ model.add(layers.Dense(len(chars), activation='softmax'))
 optimizer = keras.optimizers.RMSprop(lr=0.01)
 model.compile(loss='categorical_crossentropy', optimizer=optimizer)
 
-filename = "chollet\\weights-improvement-2.3702.hdf5"
+filename = "chollet\\weights-improvement-0.9230.hdf5"
 model.load_weights(filename)
 model.compile(loss='categorical_crossentropy', optimizer=optimizer)
 

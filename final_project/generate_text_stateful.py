@@ -65,7 +65,7 @@ model.add(Dense(y.shape[1], activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam')
 
 # load the network weights
-filename = "stateful\\weights-improvement-05-1.5803.hdf5"
+filename = "stateful\\weights-improvement-stateful-05-2.1414.hdf5"
 model.load_weights(filename)
 model.compile(loss='categorical_crossentropy', optimizer='adam')
 
